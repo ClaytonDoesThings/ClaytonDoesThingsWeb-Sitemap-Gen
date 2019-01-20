@@ -1,3 +1,4 @@
+var fs = require('fs');
 var admin = require("firebase-admin");
 
 var serviceAccount = require("./serviceAccountKey.json");
@@ -44,7 +45,7 @@ mapGameSoftware("softwares");
 function addUrl(options) {
   currentXML += " <url>\n";
   for (var option in options) {
-    currentXML += ("   <" + option + ">" + options[option] + "<" + option + ">\n");
+    currentXML += ("   <" + option + ">" + options[option] + "</" + option + ">\n");
   }
   currentXML += " </url>\n";
 }
@@ -55,6 +56,11 @@ function checkFinishXML() {
   if (calls === completedCalls) {
     currentXML += "</urlset>";
     console.log(currentXML);
+    fs.writeFile('./sitemap.xml', currentXML, (err) => {
+      bucket.upload('./sitemap.xml', {destination: '/sitemap.xml'}, (err, file, apiResponse) => {
+        console.log(err, file, apiResponse);
+      });
+    })
   }
 }
 

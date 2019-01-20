@@ -1,24 +1,24 @@
 {
-    "name": "claytondoesthingsweb-sitemap-gen",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-      "firebase-admin": "latest"
-    },
-    "description": "```\r service-account-credentials.json - from console.cloud.google.com\r ```",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/ClaytonDoesThings/ClaytonDoesThingsWeb-Sitemap-Gen.git"
-    },
-    "author": "Clayton Hickey",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/ClaytonDoesThings/ClaytonDoesThingsWeb-Sitemap-Gen/issues"
-    },
-    "homepage": "https://github.com/ClaytonDoesThings/ClaytonDoesThingsWeb-Sitemap-Gen#readme"
-  }
-  
+  "name": "claytondoesthingsweb-sitemap-gen",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "firebase-admin": "latest",
+    "fs": "0.0.1-security"
+  },
+  "description": "```\r service-account-credentials.json - from console.cloud.google.com\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClaytonDoesThings/ClaytonDoesThingsWeb-Sitemap-Gen.git"
+  },
+  "author": "Clayton Hickey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClaytonDoesThings/ClaytonDoesThingsWeb-Sitemap-Gen/issues"
+  },
+  "homepage": "https://github.com/ClaytonDoesThings/ClaytonDoesThingsWeb-Sitemap-Gen#readme"
+}
