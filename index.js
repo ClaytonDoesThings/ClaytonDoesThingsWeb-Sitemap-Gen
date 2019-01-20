@@ -24,7 +24,7 @@ currentXML = (
 
 addUrl({
   loc: url,
-  changeFreq: "monthly",
+  changefreq: "monthly",
   priority: 1
 });
 
@@ -32,7 +32,7 @@ addUrl({
 
 addUrl({
   loc: (url + "games/"),
-  changeFreq: "weekly",
+  changefreq: "weekly",
   priority: "0.9"
 });
 
@@ -70,7 +70,7 @@ function mapGameSoftware(theOne) {
     gameQuery.forEach((gameSnapshot) => {
       addUrl({
         loc: (url + theOne + "/" + gameSnapshot.id + "/"),
-        changeFreq: "weekly",
+        changefreq: "weekly",
         priority: "0.8"
       });
 
@@ -79,7 +79,7 @@ function mapGameSoftware(theOne) {
         platformQuery.forEach((platform) => {
           addUrl({
             loc: (url + theOne + "/" + gameSnapshot.id + "/" + platform.data().name + "/"),
-            changeFreq: "weekly",
+            changefreq: "weekly",
             priority: "0.7"
           });
 
@@ -88,7 +88,7 @@ function mapGameSoftware(theOne) {
             versionQuery.forEach((version) => {
               addUrl({
                 loc: (url + theOne + "/" + gameSnapshot.id + "/" + platform.data().name + "/" + version.data().name),
-                changeFreq: "yearly",
+                changefreq: "yearly",
                 priority: "0.6"
               })
             });
