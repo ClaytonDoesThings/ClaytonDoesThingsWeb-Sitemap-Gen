@@ -40,7 +40,41 @@ addUrl({
 mapGameSoftware("games");
 
 // map softwares
-mapGameSoftware("softwares");
+calls++;
+db.collection("softwares").get().then((softwareQuery) => {
+  softwareQuery.forEach((softwareSnapshot) => {
+    addUrl({
+      loc: (url + "software/" + softwareSnapshot.id + "/"),
+      changefreq: "weekly",
+      priority: "0.8"
+    });
+
+    calls++;
+    db.collection("softwares").doc(softwareSnapshot.id).collection("platforms").get().then((platformQuery) => {
+      platformQuery.forEach((platform) => {
+        addUrl({
+          loc: (url + "software/" + softwareSnapshot.id + "/" + platform.data().name + "/"),
+          changefreq: "weekly",
+          priority: "0.7"
+        });
+
+        calls++;
+        db.collection("softwares").doc(softwareSnapshot.id).collection("platforms").doc(platform.id).collection("versions").get().then((versionQuery) => {
+          versionQuery.forEach((version) => {
+            addUrl({
+              loc: (url + "software/" + softwareSnapshot.id + "/" + platform.data().name + "/" + version.data().name),
+              changefreq: "yearly",
+              priority: "0.6"
+            })
+          });
+          checkFinishXML();
+        });
+      });
+      checkFinishXML();
+    });
+  });
+  checkFinishXML();
+});
 
 function addUrl(options) {
   currentXML += " <url>\n";
